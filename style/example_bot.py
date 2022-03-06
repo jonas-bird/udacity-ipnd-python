@@ -15,7 +15,7 @@ def validate_input(prompt, possible_choices):
     provided by the second parameter
     """
     while True:
-        answer = input(prompt)
+        answer = input(prompt).lower()
         for option in possible_choices:
             if option in answer:
                 return option
@@ -23,21 +23,37 @@ def validate_input(prompt, possible_choices):
         print_pause("Sorry, I don't understand.")
 
 
-print_pause("Hello! I am Bob, the Breakfast Bot.")
-print_pause("Today we have two breakfasts available.")
-print_pause("The first is waffles with strawberries and whipped cream.")
-print_pause("The second is sweet potato pancakes with butter and syrup.")
+def intro():
+    print_pause("Hello! I am Bob, the Breakfast Bot.")
+    print_pause("Today we have two breakfasts available.")
+    print_pause("The first is waffles with strawberries and whipped cream.")
+    print_pause("The second is sweet potato pancakes with butter and syrup.")
 
-while True:
-    valid_choices = ['waffles', 'pancakes']
+
+def get_order(menu_options):
     prompt = "Please place your order. Would you like waffles or pancakes?\n"
-    choice = validate_input(prompt, valid_choices)
+    choice = validate_input(prompt, menu_options)
     print_pause(f"{choice} it is!")
     print_pause("Your order will be ready shortly.")
+    order_again()
+
+
+def order_again():
     again_choices = ['yes', 'no']
     prompt_again = "Would you like to place another order? Please say 'yes' or 'no'.\n"
     order_again = validate_input(prompt_again, again_choices)
-    if order_again == 'no':
-        print_pause("OK, goodbye!")
-        break
-    print_pause("Very good, I'm happy to take another order.")
+    if order_again == 'yes':
+        print_pause("Very good, I'm happy to take another order.")
+        get_order()
+    print_pause("OK, goodbye!")
+
+
+def main():
+    """run the program"""
+    valid_choices = ['waffles', 'pancakes']
+    intro()
+    get_order(valid_choices)
+
+
+if __name__ == "__main__":
+    main()
