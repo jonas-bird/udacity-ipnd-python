@@ -19,3 +19,17 @@ def count_substring(string, target):
         else:
             index += 1
     return total
+
+
+def locate_first(string, target):
+    """
+    Find the first occurence of string in target and return the
+       index of the start position of the substring or -1 if the
+       the string does not occur as a substring of the target
+    """
+    index = 0
+    while index < len(string):
+        if string[index: index + len(target)] == target:
+            return index
+        index += 1
+    return -1
