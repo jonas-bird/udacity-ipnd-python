@@ -6,14 +6,16 @@ def until_dot(some_string):
 
     i = 0
     before_dot = ""
-    while i < len(some_string):
-        if some_string[i] == '.':
-            break
+
+    while (i < len(some_string)) and (some_string[i] != '.'):
         before_dot += some_string[i]
         i += 1
+
     if some_string == before_dot:
         return "No dots here"
     return before_dot
+
+
 # You can test your function using the print statements below:
 
 # This should print 'Udacity'
