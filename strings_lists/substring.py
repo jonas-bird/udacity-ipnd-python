@@ -33,3 +33,19 @@ def locate_first(string, target):
             return index
         index += 1
     return -1
+
+
+def locate_all(string, target):
+    """
+    Return a list of the indexes of the start positions of all
+    occurences of string in target
+    """
+    matches = []
+    index = 0
+    while index < len(string):
+        if string[index: index + len(target)] == target:
+            matches.append(index)
+            index += len(string)
+        else:
+            index += 1
+    return matches
