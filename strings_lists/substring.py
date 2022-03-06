@@ -49,3 +49,16 @@ def locate_all(string, target):
         else:
             index += 1
     return matches
+
+
+def remove_substring(target, string):
+    """Removes substring string from string target"""
+    output = []
+    index = 0
+    while index < len(target):
+        if target[index:index+len(string)] == string:
+            index += len(string)
+        else:
+            output.append(target[index])
+            index += 1
+    return("".join(output))
