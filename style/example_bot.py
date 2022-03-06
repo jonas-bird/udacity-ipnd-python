@@ -31,29 +31,30 @@ def intro():
 
 
 def get_order(menu_options):
-    prompt = "Please place your order. Would you like waffles or pancakes?\n"
+    prompt = "Please place your order. Would you like "
+    prompt += " or ".join(menu_options) + "\n"
     choice = validate_input(prompt, menu_options)
     print_pause(f"{choice} it is!")
     print_pause("Your order will be ready shortly.")
-    order_again()
+    order_again(menu_options)
 
 
-def order_again():
+def order_again(menu_options):
     again_choices = ['yes', 'no']
     prompt_again = "Would you like to place another order? Please say 'yes' or 'no'.\n"
     order_again = validate_input(prompt_again, again_choices)
     if order_again == 'yes':
         print_pause("Very good, I'm happy to take another order.")
-        get_order()
-    print_pause("OK, goodbye!")
+        get_order(menu_options)
+    else:
+        print_pause("OK, goodbye!")
 
 
 def main():
     """run the program"""
-    valid_choices = ['waffles', 'pancakes']
+    valid_choices = ['waffles', 'pancakes', 'bacon']
     intro()
     get_order(valid_choices)
-
 
 if __name__ == "__main__":
     main()
