@@ -23,7 +23,10 @@ os.chdir("Photos")
 originals = os.listdir()
 places = []
 
-for files in originals:
-    places.append(extract_place(files))
+for filename in originals:
+    place = extract_place(filename)
+    if place not in places:
+        places.append(place)
+
 make_place_directories(places)
 print(os.listdir())
