@@ -10,16 +10,20 @@ import os
 def extract_place(f_name):
     """Extracts the portion of a string between two occurences of delimiter"""
     delimiter = '_'
-    first = f_name[f_name.find(delimiter) + 1:]
-    return first[:first.find(delimiter)]
+    return f_name.split(delimiter)[1]
+
+
+def make_place_directories(d_names):
+    """creates a directory from a list of names passed to it"""
+    for d_name in d_names:
+        os.mkdir(d_name)
 
 
 os.chdir("Photos")
-os.getcwd()
 originals = os.listdir()
+places = []
 
-# Print out the list, just to be sure everything is correct (printf debugg)
-print(originals)
-
-testplace = extract_place(originals[0])
-print(testplace)
+for files in originals:
+    places.append(extract_place(files))
+make_place_directories(places)
+print(os.listdir())
