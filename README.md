@@ -15,3 +15,8 @@ Simple script that works with strings and checks user input
 Script to create subdirectories based on a portion of the filenames in a directories contents and move the files into the matching subdirectories.  
 
 Example: If run on a folder with pictures with filenames that include the location where the photo was taken the script can be set to extract the location portion of the filenames, create subdirectories with the location names, and move the photos into the corresponding directory.  
+
+
+## files/filter/word_filter.py 
+
+Simple profanity filter. Uses a file with a word-list and checks to see if any of them appear in a text file  
