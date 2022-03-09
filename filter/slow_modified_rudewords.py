@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # Rude words detector, version 0.2
 
+import string
 
 rude_words = ["crap", "darn", "heck", "jerk", "idiot", "butt", "devil"]
 
@@ -9,6 +10,7 @@ def check_line(line):
     count = 0
     words = line.split(" ")
     for word in words:
+        word = word.strip(string.punctuation).lower()
         if word in rude_words:
             count += 1
             print(f"Found rude word: {word}")
@@ -26,4 +28,4 @@ def check_file(filename):
 
 
 if __name__ == "__main__":
-    check_file("my_story.txt")
+    check_file("my_other_story.txt")
