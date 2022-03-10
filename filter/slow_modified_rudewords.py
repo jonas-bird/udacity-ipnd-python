@@ -27,5 +27,15 @@ def check_file(filename):
         print("At least, no rude words I know.")
 
 
+def bleep(bad_word):
+    # censor words
+    index = 0
+    for letter in bad_word:
+        if letter not in string.punctuation:
+            bad_word = bad_word.replace(bad_word)[index], '*')
+            index += 1
+    return bad_word
+
+
 if __name__ == "__main__":
     check_file("my_other_story.txt")
