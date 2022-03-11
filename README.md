@@ -23,5 +23,5 @@ Simple profanity filter. Uses a file with a word-list and checks to see if any o
 
 ## webAPI/weather/weather.py
 
-This script uses requests to GET the weather forecast from  
+This script uses requests to GET the weather forecast from metaweather.com and prints out a human readable description of the current weather and forecast 
 
