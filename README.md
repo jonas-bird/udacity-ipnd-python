@@ -20,3 +20,8 @@ Example: If run on a folder with pictures with filenames that include the locati
 ## files/filter/word_filter.py 
 
 Simple profanity filter. Uses a file with a word-list and checks to see if any of them appear in a text file  
+
+## webAPI/weather/weather.py
+
+This script uses requests to GET the weather forecast from  
+
